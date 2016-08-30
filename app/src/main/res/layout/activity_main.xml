@@ -1,17 +1,17 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#212121"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_home"
+    tools:context=".HomeActivity">
 
-    <Button
-        android:id="@+id/btn_agenda"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="agenda" />
 
-    <ListView
-        android:id="@+id/listview"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
 
-</LinearLayout>
+</RelativeLayout>

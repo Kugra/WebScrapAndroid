@@ -1,11 +1,10 @@
 package br.com.webscrap;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,34 +36,10 @@ public class HomeActivity extends AppCompatActivity {
     private void populateGrid(){
 
         casas = new ArrayList<>();
-
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Sinners Club", "http://www.sinnersclub.com.br", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Beco 203", "http://www.beco203.com.br/agenda/", "http://www.beco203.com.br/resources/images/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
-        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png"));
+        casas.add(new Casa("Beco 203", "http://www.beco203.com.br/agenda/", "http://www.beco203.com.br/resources/images/logo.png",0));
+        casas.add(new Casa("Casa do Lado", "http://casadolado.com.br/", "http://casadolado.com.br/wp-content/themes/casa-do-lado/images/logotipo-casa-do-lado.png",1));
+        casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png",2));
+        casas.add(new Casa("Sinners Club", "http://www.sinnersclub.com.br", "http://www.sinnersclub.com.br/assets/2x/index-logo-3c842d203a99cad519eecfbaaf42e125.png",3));
 
     }
 }

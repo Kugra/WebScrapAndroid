@@ -24,7 +24,7 @@ import br.com.webscrap.R;
 import br.com.webscrap.model.Casa;
 
 /**
- * Created by Gustavo Terras on 16/07/2015.
+ * Created by Gustavo Terras on 16/06/2016.
  */
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
