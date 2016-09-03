@@ -16,17 +16,19 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
+import br.com.webscrap.model.Evento;
+
 public class InfoActivity extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
-    private String url;
+    private Evento evento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        url = getIntent().getStringExtra("key");
+        evento = (Evento) getIntent().getSerializableExtra("extra");
 
         Agenda agenda = new Agenda();
         agenda.execute();
@@ -49,7 +51,7 @@ public class InfoActivity extends AppCompatActivity {
 
         public void CuckoGetPartyInfoDoInBackground(){
             try {
-                Document document = Jsoup.connect(url).get();
+                Document document = Jsoup.connect(evento.getUrl()).get();
                 Elements infoEvento = document.select("div#info-evento");
 
                 for (Element info : infoEvento){
@@ -63,7 +65,7 @@ public class InfoActivity extends AppCompatActivity {
 
         public void SinnersGetPartyInfoDoInBackground() {
             try {
-                Document document = Jsoup.connect(url).get();
+                Document document = Jsoup.connect(evento.getUrl()).get();
                 Elements infoEvento = document.select("div.content");
 
                 for (Element info : infoEvento) {
@@ -76,7 +78,7 @@ public class InfoActivity extends AppCompatActivity {
 
         public void Beco203RSGetPartyInfoDoInBackground(){
             try {
-                Document document = Jsoup.connect(url).get();
+                Document document = Jsoup.connect(evento.getUrl()).get();
                 Elements infoEvento = document.select("div#textoAgendaInterna");
 
                 for (Element info : infoEvento){
@@ -89,7 +91,7 @@ public class InfoActivity extends AppCompatActivity {
 
         public void CasaDoLadoGetPartyInfoDoInBackground(){
             try {
-                Document document = Jsoup.connect(url).get();
+                Document document = Jsoup.connect(evento.getUrl()).get();
                 Elements infoEvento = document.select("div[id*=-0-1]");
 
                 for (Element info : infoEvento){
@@ -102,16 +104,18 @@ public class InfoActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            CuckoGetPartyInfoDoInBackground();
-//            SinnersGetPartyInfoDoInBackground();
-//            Beco203RSGetPartyInfoDoInBackground();
-//            CasaDoLadoGetPartyInfoDoInBackground();
+            //CuckoGetPartyInfoDoInBackground();
+            //SinnersGetPartyInfoDoInBackground();
+            Beco203RSGetPartyInfoDoInBackground();
+            //CasaDoLadoGetPartyInfoDoInBackground();
             return null;
 
         }
 
         @Override
         protected void onPostExecute(Void v) {
+            if(s == null || s.toString().isEmpty()) return;
+
             TextView textView = (TextView) findViewById(R.id.text);
             textView.setText(s);
 

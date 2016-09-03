@@ -1,6 +1,7 @@
 package br.com.webscrap.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Casa implements Serializable{
 
@@ -8,6 +9,7 @@ public class Casa implements Serializable{
     private String url;
     private String logo;
     private int codigo;
+    private List<Evento> eventos;
 
     public Casa(String name, String url, String logo, int codigo) {
         this.name = name;
@@ -42,5 +44,13 @@ public class Casa implements Serializable{
 
     public void setLogo(String logo) {
         this.logo = logo;
+    }
+
+    public List<Evento> getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
     }
 }

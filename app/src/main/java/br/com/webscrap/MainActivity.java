@@ -24,7 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.webscrap.adapter.MyAdapter;
+import br.com.webscrap.adapter.MyAdapterMain;
 import br.com.webscrap.model.Casa;
+import br.com.webscrap.model.Evento;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,24 +36,20 @@ public class MainActivity extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
     private ListView lv;
+    private Casa casa;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Casa casa = (Casa) getIntent().getSerializableExtra("extra");
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        MyAdapter adapter = new MyAdapter(this, casas);
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
+        casa = (Casa) getIntent().getSerializableExtra("extra");
 
         Agenda agenda = new Agenda();
 
         switch (casa.getCodigo()){
             case 0:
-                agenda.Beco203RSGetEachLinkDoInBackground();
+                //agenda.Beco203RSGetEachLinkDoInBackground();
+                agenda.execute();
                 break;
             case 1:
                 agenda.CasaDoLadoGetEachLinkDoInBackground();
@@ -100,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 //        List<String> agendaBeco203RS = new ArrayList<>();
 //        List<String> agendaCasaDoLado = new ArrayList<>();
 
-        List<String> listaEventos = new ArrayList<>();
+        List<Evento> listaEventos = new ArrayList<>();
 
         @Override
         protected void onPreExecute() {
@@ -114,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void CuckoGetEachLinkDoInBackground(){
-            try {
+            /*try {
                 Document document = Jsoup.connect("http://www.cucko.com.br/agenda/").get();
                 Elements links = document.select("a[href~=(agenda/evento)]");
 
@@ -126,11 +124,11 @@ public class MainActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
 
         public void SinnersGetEachLinkDoInBackground(){
-            try{
+           /* try{
                 Document document = Jsoup.connect("http://www.sinnersclub.com.br").get();
                 Elements links =  document.select("a[href~=(/agenda/)]");
                 for(Element link : links){
@@ -140,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             } catch (IOException e){
                 e.printStackTrace();
-            }
+            }*/
         }
 
         public void Beco203RSGetEachLinkDoInBackground(){
@@ -161,8 +159,16 @@ public class MainActivity extends AppCompatActivity {
                     String ajusteLink = link.attr("href");
                     ajusteLink = ajusteLink.substring(2,ajusteLink.length());
 //                    agendaBeco203RS.add("http://www.beco203.com.br"+ajusteLink);
-                    listaEventos.add("http://www.beco203.com.br"+ajusteLink);
+
+                    Evento evento = new Evento();
+                    evento.setCapa("http://www.beco203.com.br"+ajusteImg);
+                    evento.setUrl("http://www.beco203.com.br"+ajusteLink);
+
+                    listaEventos.add(evento);
                 }
+
+                casa.setEventos(listaEventos);
+
             } catch (IOException e){
                 e.printStackTrace();
             }
@@ -170,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         public void CasaDoLadoGetEachLinkDoInBackground(){
-            try{
+            /*try{
                 Document document = Jsoup.connect("http://casadolado.com.br/").get();
                 Elements links =  document.select("div.destaque-inicio > a[href~=(http://casadolado.com.br/)]");
                 for(Element link : links){
@@ -180,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             } catch (IOException e){
                 e.printStackTrace();
-            }
+            }*/
         }
 
         @Override
@@ -198,8 +204,16 @@ public class MainActivity extends AppCompatActivity {
 //            lv.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, agendaSinners));
 //            lv.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, agendaBeco203RS));
 //            lv.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, agendaCasaDoLado));
-            lv.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, listaEventos));
+            //lv.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, listaEventos));
             mProgressDialog.dismiss();
+
+
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+            MyAdapterMain adapter = new MyAdapterMain(MainActivity.this, casa.getEventos());
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(adapter);
         }
     }
 }
