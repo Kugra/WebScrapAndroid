@@ -31,12 +31,14 @@ public class MainActivity extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
 
-    private Casa casa = (Casa) getIntent().getSerializableExtra("extra");
-
-    private int codigoEscolha = casa.getCodigo();
+    private Casa casa;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+        casa = (Casa) getIntent().getSerializableExtra("extra");
+
+        int codigoEscolha = casa.getCodigo();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -104,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
                     evento.setCapa(capa);
                     evento.setUrl(url);
-                    evento.setCodigo(codigoEscolha);
+                    evento.setCodigo(casa.getCodigo());
 
                     listaEventos.add(evento);
 
@@ -178,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                     Evento evento = new Evento();
                     evento.setCapa(capa);
                     evento.setUrl(url);
-                    evento.setCodigo(codigoEscolha);
+                    evento.setCodigo(casa.getCodigo());
 
                     listaEventos.add(evento);
 
@@ -253,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
 
                     evento.setCapa(capa);
                     evento.setUrl(url);
-                    evento.setCodigo(codigoEscolha);
+                    evento.setCodigo(casa.getCodigo());
 
                     listaEventos.add(evento);
 
@@ -328,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
 
                     evento.setUrl(url);
                     evento.setCapa(capa);
-                    evento.setCodigo(codigoEscolha);
+                    evento.setCodigo(casa.getCodigo());
 
                     listaEventos.add(evento);
 
