@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class Evento implements Serializable{
 
     private String url;
-    private String conteudo;
+    private int codigo;
     private String capa;
 
     public String getUrl() {
@@ -20,12 +20,12 @@ public class Evento implements Serializable{
         this.url = url;
     }
 
-    public String getConteudo() {
-        return conteudo;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setConteudo(String conteudo) {
-        this.conteudo = conteudo;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getCapa() {
