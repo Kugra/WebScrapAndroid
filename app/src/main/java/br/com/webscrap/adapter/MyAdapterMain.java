@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -18,9 +17,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import br.com.webscrap.InfoActivity;
-import br.com.webscrap.MainActivity;
 import br.com.webscrap.R;
-import br.com.webscrap.model.Casa;
 import br.com.webscrap.model.Evento;
 
 /**
@@ -39,7 +36,7 @@ public class MyAdapterMain extends RecyclerView.Adapter<MyAdapterMain.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_main, parent, false);
         return new ViewHolder(itemView);
     }
 
@@ -54,8 +51,6 @@ public class MyAdapterMain extends RecyclerView.Adapter<MyAdapterMain.ViewHolder
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()
                 .into(holder.picture);
-
-        //holder.name.setText(casa.getName());
     }
 
     private void setAnimation(View viewToAnimate, int anim) {
@@ -70,12 +65,10 @@ public class MyAdapterMain extends RecyclerView.Adapter<MyAdapterMain.ViewHolder
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnTouchListener{
-        private TextView name;
         private ImageView picture;
 
         ViewHolder(View view) {
             super(view);
-            this.name = (TextView) view.findViewById(R.id.txt_name);
             this.picture = (ImageView) view.findViewById(R.id.img_content);
 
             view.setOnClickListener(this);
