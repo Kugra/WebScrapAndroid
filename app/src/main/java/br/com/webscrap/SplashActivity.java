@@ -18,14 +18,14 @@ public class SplashActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 
-		Glide.with(SplashActivity.this).load("http://gifdanceparty.giphy.com/assets/dancers/smooch.gif").into((ImageView) findViewById(R.id.image_logo));
+//		Glide.with(SplashActivity.this).load("http://gifdanceparty.giphy.com/assets/dancers/smooch.gif").into((ImageView) findViewById(R.id.image_logo));
 
 		new AsyncTask<Void, Void, Boolean>() {
 			@Override
 			protected Boolean doInBackground(Void... params) {
 
 				try {
-					Thread.sleep(5000);
+					Thread.sleep(2500);
 				} catch (InterruptedException e) {
 					Log.e(TAG, e.getMessage());
 				}
