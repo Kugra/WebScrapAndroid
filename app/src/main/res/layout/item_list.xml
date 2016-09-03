@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#616161"
+android:background="#616161"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
+<br.com.webscrap.util.components.SquareImageView
+    android:id="@+id/img_content"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:adjustViewBounds="true"
+    android:scaleType="centerCrop" />
 
-    <br.com.webscrap.util.components.SquareImageView
-        android:id="@+id/img_content"
+<LinearLayout
+    android:id="@+id/layout_bottom"
+    android:background="@color/black_semi_transparent"
+    android:orientation="vertical"
+    android:padding="5pt"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom">
+
+    <TextView
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:id="@+id/txt_name"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textSize="18sp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop" />
+        android:layout_height="wrap_content"/>
 
-    <LinearLayout
-        android:id="@+id/layout_bottom"
-        android:background="@color/black_semi_transparent"
-        android:orientation="vertical"
-        android:padding="5pt"
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-        <TextView
-            android:textColor="@android:color/white"
-            android:textAlignment="center"
-            android:id="@+id/txt_name"
-            android:singleLine="true"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
+</LinearLayout>
 </FrameLayout>
