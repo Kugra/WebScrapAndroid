@@ -23,7 +23,7 @@ import br.com.webscrap.adapter.MyAdapterMain;
 import br.com.webscrap.model.Casa;
 import br.com.webscrap.model.Evento;
 
-public class MainActivity extends AppCompatActivity implements Serializable{
+public class MainActivity extends AppCompatActivity {
 
     private List<Casa> casas;
 

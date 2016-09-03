@@ -18,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
@@ -36,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     private void populateGrid(){
 
         casas = new ArrayList<>();
+
         casas.add(new Casa("Beco 203", "http://www.beco203.com.br/agenda/", "http://www.beco203.com.br/resources/images/logo.png",0));
         casas.add(new Casa("Casa do Lado", "http://casadolado.com.br/", "http://casadolado.com.br/wp-content/themes/casa-do-lado/images/logotipo-casa-do-lado.png",1));
         casas.add(new Casa("Cucko", "http://www.cucko.com.br/agenda/", "http://www.cucko.com.br/assets/site/img/logo.png",2));
